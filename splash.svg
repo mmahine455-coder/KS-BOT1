@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF1744" />
+      <stop offset="100%" stop-color="#990000" />
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .bg { fill: #07090e; }
+
+    /* Perfect Centered Rotating Ring */
+    .outer-spin {
+      fill: none;
+      stroke: #FF1744;
+      stroke-width: 4;
+      stroke-dasharray: 100 200;
+      opacity: 0.8;
+      transform-origin: 256px 215px;
+      animation: spinClock 6s linear infinite;
+    }
+
+    .base-circle {
+      fill: none;
+      stroke: #1f2535;
+      stroke-width: 2;
+    }
+
+    .center-badge {
+      fill: url(#redGrad);
+      filter: url(#glow);
+    }
+
+    .app-title {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      fill: #ffffff;
+      letter-spacing: 1.5px;
+      text-anchor: middle;
+    }
+
+    .app-tagline {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      fill: #8c96a5;
+      letter-spacing: 4px;
+      text-anchor: middle;
+    }
+
+    .center-letter {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-weight: 800;
+      font-size: 56px;
+      fill: #ffffff;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    @keyframes spinClock {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="512" height="512" class="bg"/>
+
+  <!-- Static Center Ring -->
+  <circle cx="256" cy="215" r="110" class="base-circle"/>
+
+  <!-- Perfectly Centered Rotating Ring -->
+  <circle cx="256" cy="215" r="110" class="outer-spin"/>
+
+  <!-- Center Solid Badge -->
+  <circle cx="256" cy="215" r="60" class="center-badge"/>
+
+  <!-- Center Letter K -->
+  <text x="256" y="217" class="center-letter">K</text>
+
+  <!-- App Title -->
+  <text x="256" y="362" class="app-title">KS Bot</text>
+
+  <!-- Tagline -->
+  <text x="256" y="398" class="app-tagline">TRUSTED • SECURE • FAST</text>
+</svg>
